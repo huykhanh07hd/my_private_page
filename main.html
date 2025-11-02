@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Thanh toán</title>
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <style>
+            .cart-icon, .user-icon {
+                font-size: 30px; 
+                color: #000; 
+                cursor: pointer; /* Thêm con trỏ để trông giống như một nút bấm */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="khung_tieu_de_trang">
+            <div class="khung_tieu_de_trang_1">
+                <div><img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/494157917_691864366545956_3737489608962492209_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHF20heSCBEcJLbUe2vUxdxt4cR3JxJuXq3hxHcnEm5en66uTJN82ksD5qeb6fdK9NJWP68J-H9wDkE1ZgMozPI&_nc_ohc=KMdjDdBc5BcQ7kNvwHLtr5m&_nc_oc=Adm-KzJnmNVLHMscY0eA1-ZkPpt_GcA3dibHt1_m4HdKSieCMG6gDDO331Zq7FfGbHk&_nc_zt=23&_nc_ht=scontent.fhan2-3.fna&_nc_gid=KR2mBLVJ1nJezqqOOGRvyg&oh=00_Afd5K40a56BSjP9xtS_zmlV2KcplX6z8rUqBoiBtXTGC9Q&oe=690A921B" style="height: 45px; width: 90px"></div>
+                <form>
+                    <input type="text" placeholder="🔍Tìm kiếm" style="height: 40px; width: 300px; border-radius: 10px">
+                </form>
+            </div>
+            <div class="khung_tieu_de_trang_2">
+                <p style="cursor: pointer">Giới thiệu</p>
+                <p style="cursor: pointer">Trợ giúp</p>
+                <p style="cursor: pointer">Hợp tác</p>
+                <div><i class="fa-solid fa-cart-shopping cart-icon"></i></div>
+                <div><i class="fa-solid fa-circle-user user-icon"></i></div>
+            </div>
+        </div>
+        <div style="background-color: pink">
+            <div class="khung_tieu_de_do">
+                <p style="cursor: pointer">Trang chủ</p>
+                <p style="cursor: pointer">Thực đơn</p>
+                <div><img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/494157917_691864366545956_3737489608962492209_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHF20heSCBEcJLbUe2vUxdxt4cR3JxJuXq3hxHcnEm5en66uTJN82ksD5qeb6fdK9NJWP68J-H9wDkE1ZgMozPI&_nc_ohc=KMdjDdBc5BcQ7kNvwHLtr5m&_nc_oc=Adm-KzJnmNVLHMscY0eA1-ZkPpt_GcA3dibHt1_m4HdKSieCMG6gDDO331Zq7FfGbHk&_nc_zt=23&_nc_ht=scontent.fhan2-3.fna&_nc_gid=KR2mBLVJ1nJezqqOOGRvyg&oh=00_Afd5K40a56BSjP9xtS_zmlV2KcplX6z8rUqBoiBtXTGC9Q&oe=690A921B" style="height: 80px; width: 80x; border-radius: 80px; border: 5px solid white"></div>
+                <p style="cursor: pointer">Sổ sức khỏe</p>
+                <p style="cursor: pointer">Cộng đồng</p>
+            </div>
+        </div>
+        <div class="khu_vuc_thanh_toan">
+            <div class="khu_vuc_thanh_toan_1">
+                <span style="color:red; cursor: pointer">Trang chủ</span>
+                <span style="color:red">/</span>
+                <span style="color:red; cursor: pointer">Giỏ hàng</span>
+                <span style="color:red">/</span>
+                <span style="color:burlywood; cursor: pointer">Thanh toán</span>
+            </div>
+            <div class="khu_vuc_thanh_toan_2">
+                <h1>Thanh toán</h1>
+            </div>
+            <div class="khu_vuc_thanh_toan_3">
+                <div class="ga_nuong">
+                    <div class="ga_nuong_1">
+                        <div><img src="https://th.bing.com/th/id/R.6eec7ce468f99e3e53b4d2406ea9c106?rik=sHv4Mi57MsROAA&pid=ImgRaw&r=0" style="width: 120px; height: 120px"></div>
+                        <div style="margin-top: -25px; margin-left: 5px">
+                            <h3 style="margin-bottom: 10px">Gà nướng</h3>
+                            <p style="margin-top: 10px; margin-bottom: 10px">Nguyên liệu chính: 6</p>
+                            <p style="margin-top: 10px; margin-bottom: 10px">Gia vị: 2</p>
+                            <div class="dieu_chinh">
+                                <button style="border: none; cursor: pointer" onclick="giam()"> - </button>
+                                <div id="dieu_chinh_screen">0</div>
+                                <button style="border:none; cursor: pointer" onclick="tang()"> + </button>
+                            </div>
+                            <h3 style="margin-top: 10px">50.000 đ</h3>
+                        </div>
+                    </div>
+                    <div class="ga_nuong_2">
+                        <select style="width: 120px; height: 30px; border-radius: 5px; text-align: center">
+                            <option>xem chi tiết</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="more_in4">
+                    <h3>Phương thức vận chuyển</h3>
+                    <div style="display: flex; gap: 10px">
+                        <button class="my_button">Lấy tận nơi</button>
+                        <button class="my_button">Giao hàng nhanh</button>
+                        <button class="my_button">Giao hỏa tốc</button>
+                    </div>
+                    <h3>Thông tin nhận hàng</h3>
+                    <form>
+                        <label for="ten_nguoi_dat" style="font-weight: bold">Tên người đặt</label><br>
+                        <input type="input" id="ten_nguoi_dat" placeholder="Content" style="padding-left: 10px; height: 30px; width: 400px; border-radius: 10px"><br><br>
+                        <label for="so_dien_thoai" style="font-weight: bold">Số điện thoại</label><br>
+                        <input type="input" id="so_dien_thoai" placeholder="Content" style="padding-left: 10px; height: 30px; width: 400px; border-radius: 10px"><br><br>
+                        <label for="dia_chi" style="font-weight: bold">Địa chỉ</label><br>
+                        <input type="input" id="dia_chi" placeholder="Content" style="padding-left: 10px; height: 30px; width: 400px; border-radius: 10px"><br><br>
+                        <div style="display: flex; gap: 10px">
+                            <div>
+                                <label for="ngay_giao_hang" style="font-weight: bold">Ngày giao hàng</label><br>
+                                <input type="date" id="ngay_giao_hang" placeholder="05/05/2025" style="padding-left: 10px; height: 30px; width: 191px; border-radius: 10px"><br><br>
+                            </div>
+                            <div> 
+                                <label for="gio_nhan_hang" style="font-weight: bold">Giờ nhận hàng</label><br>
+                                <input type="time" id="gio_nhan_hang" placeholder="10:00 AM" style="padding-left: 10px; height: 30px; width: 191px; border-radius: 10px">
+                            </div>
+                        </div>
+                    </form>
+                    <h3>Phương thức thanh toán</h3>
+                    <div style="display: flex; gap: 10px">
+                        <button class="my_button_1">COD</button>
+                        <button class="my_button_1">Chuyển khoản/Ví điện tử</button>
+                        <button class="my_button_1">Thẻ tín dụng/Visa</button>
+                    </div><br>
+                    <div style="display: flex">
+                        <input type="checkbox" id="save">
+                        <label for="save">Lưu thông tin cho lần mua hàng tiếp theo</label>
+                    </div>
+                    <h3>Ghi chú cho cửa hàng</h3>
+                    <textarea placeholder="Content" style="padding-left: 10px; width: 380px; height: 80px; border-radius: 10px"></textarea>
+                    <h3>Chi tiết thanh toán</h3>
+                    <div style="display: flex; justify-content: space-between">
+                        <div style="display: flex; flex-direction: column">
+                            <div>Tổng số sản phẩm</div><br>
+                            <div>Tổng giá sản phẩm</div><br>
+                            <div>Phí ship</div><br>
+                            <div>Tổng thanh toán</div><br>
+                        </div>
+                        <div style="display: flex; flex-direction: column; font-weight: bold">
+                            <div>xx</div><br>
+                            <div>đxx.xx</div><br>
+                            <div>đxx.xx</div><br>
+                            <div>đxx.xx</div><br>
+                        </div>
+                    </div>
+                    <div style="font-size: 12px; text-align: center">
+                        <p>Nhấn "Đặt hàng" đồng nghĩa với việc</p>
+                        <p>bạn đồng ý với Điều khoản của chúng tôi</p><br>
+                        <button class="my_button">Đặt hàng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chan_trang_1">
+            <div><img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/494157917_691864366545956_3737489608962492209_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHF20heSCBEcJLbUe2vUxdxt4cR3JxJuXq3hxHcnEm5en66uTJN82ksD5qeb6fdK9NJWP68J-H9wDkE1ZgMozPI&_nc_ohc=KMdjDdBc5BcQ7kNvwHLtr5m&_nc_oc=Adm-KzJnmNVLHMscY0eA1-ZkPpt_GcA3dibHt1_m4HdKSieCMG6gDDO331Zq7FfGbHk&_nc_zt=23&_nc_ht=scontent.fhan2-3.fna&_nc_gid=KR2mBLVJ1nJezqqOOGRvyg&oh=00_Afd5K40a56BSjP9xtS_zmlV2KcplX6z8rUqBoiBtXTGC9Q&oe=690A921B" style="width: 50px; height: 50px; padding-top: 30px"></div>
+            <div>
+                <h4>Menu</h4>
+                <p style="font-size: 14px; cursor: pointer">Trang chủ</p>
+                <p style="font-size: 14px; cursor: pointer">Thực đơn</p>
+                <p style="font-size: 14px; cursor: pointer">Chatbot</p>
+                <p style="font-size: 14px; cursor: pointer">Giới thiệu</p>
+                <p style="font-size: 14px; cursor: pointer">Hợp tác</p>
+            </div>
+            <div>
+                <h4>Địa chỉ</h4><br>
+                <p style="font-size: 14px">123 N.Main St.</p>
+                <p style="font-size: 14px">Nowhere, MO 10567</p>
+            </div>
+            <div>
+                <h4>Liên hệ</h4><br>
+                <p style="font-size: 14px">+1 234 567 8910</p>
+                <p style="font-size: 14px">info@gallery.com</p>
+            </div>
+            <div>
+                <h4>Mạng xã hội</h4><br>
+                <div style="display: flex; gap: 10px">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-x-twitter"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-tiktok"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="chan_trang_2">
+            <p style="font-size: 12px">@2025 Logwork. All right reserved</p>
+            <div style="display: flex; gap: 20px">
+                <p style="font-size: 12px; cursor: pointer">Terms</p>
+                <p style="font-size: 12px; cursor: pointer">Privacy police</p>
+            </div>
+        </div>
+    </body>
+    <script>
+        cnt=0;
+        function giam() {
+            cnt-=1;
+            document.getElementById("dieu_chinh_screen").innerHTML=cnt;
+        }
+        function tang() {
+            cnt+=1;
+            document.getElementById("dieu_chinh_screen").innerHTML=cnt;
+        }
+    </script>
+</html>
