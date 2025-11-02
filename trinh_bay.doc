@@ -1,0 +1,21 @@
+(Lưu ý: Đây mới chỉ là 1 trang web tĩnh, có yếu tố không tĩnh chưa được áp dụng, hoặc áp dụng không đáng kể!)
+- Header: Em tạo 2 hàng:
++ Hàng 1 có những tính năng như tìm kiếm, mua hàng và truy cập trang cá nhân. Ngoài ra còn có các dịch vụ khách
+hàng: Giới thiệu, trợ giúp, hợp tác
++ Hàng 2 thêm vào 1 màu nền hồng với ảnh của em vào giữa cho bắt mắt, thêm vào đó là các chữ giúp khách hàng có
+thể truy cập vào các phần khác của trang web
+- Body: Khu vực chọn món ăn và thanh toán của khách hàng:
++ Góc trên trái có các chữ "trang chủ", "giỏ hàng", "thanh toán" để khách hàng đi đến các liên kết
++ Chữ "Thanh toán" to ở giữa giúp khách hàng biết trang của mình đang truy cập
++ Cột bên trái hỗ trợ khách hàng đặt món ăn với các yếu tố: hình ảnh món, tên món, nguyên liệu chính, gia vị, 
+thanh điều chỉnh số lượng, đơn giá, thanh xem thêm chi tiết
++ Cột thanh toán bên phải được dùng khi khách hàng đã xác định được món ăn của mình bao gồm các dịch vụ:
+    . Phương thức vận chuyển đa dạng (offline, online)
+    . Thông tin khách hàng: tên, số điện thoại, địa chỉ, ngày giao hàng, giờ nhận hàng
+    . Phương thức thanh toán đa dạng
+    . Nút lưu lại thông tin cho lần thanh toán tiếp theo
+    . Khung ghi chú góp ý cho cửa Hàng
+    . Chi tiết thanh toán giúp khách hàng có thể xem lại những gì mình đã làm, tránh mất thời gian kéo lên trên
+    . Có nút đặt hàng ở dưới cùng cùng với lời nhắn
+- Footer: 
+Bao gồm các mục như Menu, Địa chỉ, Liên hệ và Mạng xã hội và 1 số tính năng phụ khác
