@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+    </body>
+    <script>
+        Array.prototype.map2=function(callback) {
+            array_length=this.length;
+            for (var i=0; i<array_length; i++) {
+                callback(this[i].title, this[i].body);
+            }
+        }
+        var post_api="https://jsonplaceholder.typicode.com/posts";
+        fetch(post_api)
+            .then(function(response) { 
+                return response.json();
+                // JSON.parse from JSON to JavaScript types
+            })
+            .then(function(posts) {
+                posts.map2(function(title, body) {
+                    console.log("This is title: ", title, ". This is body: ", body);
+                })
+            })
+    </script>
+</html>
