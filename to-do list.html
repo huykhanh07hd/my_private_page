@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <title>To-do list</title>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+            }
+            #tb {
+                margin: 0 auto; 
+                width: 80%;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Tạo nút bấm để thêm các nhiệm vụ-->
+        <button onclick=Click() style="width: 50px; height: 50px; color: black; background-color: greenyellow">+</button>
+        <!-- Tạo bảng để khi bấm nút thông tin các nhiệm vụ sẽ hiện trong bảng-->
+        <table id="tb">
+            <tr>
+                <th style="width: 1%">No</th> <!-- Số thứ tự-->
+                <th style="width: 55%">Task</th> <!-- Nhiệm vụ-->
+                <th style="width: 19%">Date</th> <!-- Ngày tháng năm-->
+                <th style="width: 5%">Delete</th> <!-- Để xóa nhiệm vụ-->
+            </tr>
+        </table>
+    </body>
+    <script>
+        var count = 0; 
+        var arr = []
+        var element_1 = [], element_2 = [], element_3 = [];
+        // element_1 lưu số thứ tự
+        // element_2 lưu tên nhiệm vụ
+        // element_3 lưu thứ ngày tháng
+        // Khởi tạo 1 mảng các chuỗi rỗng
+        for (var i = 1; i <= 1000; i += 1) {
+            element_1.push("");
+            element_2.push("");
+            element_3.push("");
+        }
+        function Del(cur_count) {    // Hàm xử lý sự kiện khi bấm nút xóa nhiệm vụ
+            arr = arr.filter((item) => {
+                if (item.No != cur_count) return item;   // Lọc ra list các task không chứa task được xóa
+            });
+            // Khi đó số lượng task còn lại là count - 1 nên ta sẽ đẩy vị trí các task nằm trong đoạn [1,count - 1]
+            // Vị trí count sẽ không còn task nên khởi tạo các thông tin của task thứ count là rỗng
+            element_1[count]="", element_2[count]="", element_3[count]="";  
+            count -= 1;
+            const tb = document.getElementById("tb"); // Lấy biến của bảng các nhiệm vụ
+            while (tb.children.length > 1) tb.removeChild(tb.lastChild); // Xóa các nhiệm vụ để reset lại bảng
+            var new_count = 0
+            arr.sort((a,b) => a.No - b.No); // Sắp xếp các nhiệm vụ theo thứ tự tăng dần, giúp các nhiệm vụ trở nên
+            // có trật tự, không bị lộn xộn 
+            arr.map((item) => {
+                const tr = document.createElement("tr");
+                new_count += 1;
+                item.No = new_count;
+                var cur_count = new_count;
+                element_1[new_count] = new_count;
+                element_2[new_count] = item.Task;
+                element_3[new_count] = item.Date;
+                tr.innerHTML = `
+                    <td style="text-align: center">${new_count}</td>
+                    <td style="text-align: center" >${item.Task}</td>
+                    <td style="text-align: center">${item.Date}</td>
+                    <td style="text-align: center">
+                        <button onclick=Del(${cur_count}) style="width: 100%; background-color: red">
+                            X
+                        </button>
+                    </td>
+                `;
+                tb.appendChild(tr);
+            })
+        }
+        // Với input của task mình sẽ lưu id="2*cur_count-1"
+        // Với input của date mình sẽ lưu id="2*cur_count"
+        // Lưu như vậy để khi lấy id, các id trở nên phân biệt, không trùng lặp => tránh xung đột dữ liệu
+        var handleTask = function(id) {    // Hàm xử lý task khi thêm 1 nhiệm vụ mới vào bảng
+            const task = document.getElementById(String(2*id-1));
+            //console.log(task.value);
+            element_2[id] = task.value; // gắn nhiệm vụ vào mảng element_2
+            if ((element_2[id] != "") && (element_3[id] != "")) { 
+                // Kiểm tra nếu đã nhập đủ thông tin nhiệm vụ thì lúc đó mới thêm vào mảng, đảm bảo nhiệm vụ phải
+                // được viết ra một cách rõ ràng, cụ thể
+                arr.push(
+                {
+                    No: element_1[id],
+                    Task: element_2[id],
+                    Date: element_3[id]
+                }
+            );
+            }
+        }
+        var handleDate = function(id) {     // Hàm xử lý date khi thêm 1 nhiệm vụ mới vào bảng
+            const date = document.getElementById(String(2*id));
+            //console.log(date.value);
+            element_3[id] = date.value;  // Gắn thứ ngày tháng vào mảng element_3
+            if ((element_2[id] != "") && (element_3[id] != "")) {
+                // Kiểm tra nếu đã nhập đủ thông tin nhiệm vụ thì lúc đó mới thêm vào mảng, đảm bảo nhiệm vụ phải
+                // được viết ra một cách rõ ràng, cụ thể
+                arr.push(
+                {
+                    No: element_1[id],
+                    Task: element_2[id],
+                    Date: element_3[id]
+                }
+            );
+            }
+        }
+        var Click = function() {  // Hàm xử lý xuất hiện thông tin cần nhập của nhiệm vụ mới khi nhấp chuột vào
+            // dấu cộng để tạo thêm nhiệm vụ mới
+            const tr = document.createElement("tr");   // Tạo thẻ <tr>
+            count += 1;   // số thứ tự hiện tại của nhiệm vụ mới
+            element_1[count] = count;    // gắn vào mảng số thứ tự
+            var cur_count = count;     // Số thứ tự hiện tại của nhiệm vụ mới
+            // Thêm các mã HTML vào thẻ <tr>
+            tr.innerHTML = `    
+                <td style="text-align: center">${count}</td>
+                <td style="text-align: center" >
+                    <input 
+                        type="text" 
+                        placeholder="Please write task!" 
+                        style="width: 97%; border: 0px; text-align: center" 
+                        id="${2*cur_count-1}"
+                        onchange=handleTask(${cur_count})
+                    >
+                </td>
+                <td style="text-align: center">
+                    <input 
+                        type="date" 
+                        style="border: 0px; text-align: center"
+                        id="${2*cur_count}"
+                        onchange=handleDate(${cur_count})
+                    >
+                </td>
+                <td style="text-align: center">
+                    <button onclick=Del(${cur_count}) style="width: 100%; background-color: red">
+                        X
+                    </button>
+                </td>
+            `;
+            const tb = document.getElementById("tb");
+            tb.appendChild(tr);   // Thêm 1 dòng thông tin nhiệm vụ vào bảng chứa nhiệm vụ
+        }
+    </script>
+</html>
